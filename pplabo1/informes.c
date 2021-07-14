@@ -197,7 +197,7 @@ int mostrarAutosColor(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMar
 }
 
 /**
- * \brief Muestra los colores con sus autos
+ * \brief Muestra todos los autos por marca
  * \param autos Array de autos
  * \param tamAuto limite del array de autos
  * \param colores Array de colores
@@ -625,6 +625,16 @@ int marcaAuto(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eA
 	return retorno;
 }
 
+/**
+ * \brief Muestra los autos por localidad seleccionada
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
 int mostrarAutosLocalidad(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
 {
     int retorno=-1;
@@ -662,6 +672,16 @@ int mostrarAutosLocalidad(eAuto autos[],int tamAuto,eColor colores[],int tamCol,
 	return retorno;
 }
 
+/**
+ * \brief Muestra los autos de capital federal
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
 int mostrarAutosCapitalFederal(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
 {
     int retorno=-1;
@@ -692,6 +712,16 @@ int mostrarAutosCapitalFederal(eAuto autos[],int tamAuto,eColor colores[],int ta
 	return retorno;
 }
 
+/**
+ * \brief Muestra los autos de la provincia de Buenos Aires
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
 int mostrarAutosProvinciaBa(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
 {
     int retorno=-1;
@@ -722,6 +752,20 @@ int mostrarAutosProvinciaBa(eAuto autos[],int tamAuto,eColor colores[],int tamCo
 	return retorno;
 }
 
+/**
+ * \brief Muestra los autos mas nuevos
+ * \param trabajos Array de trabajos
+ * \param tamTra limite del array de trabajos
+ * \param servicios Array de servicios
+ * \param tamSer limite del array de servicios
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
 int listarAutosMasNuevos(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
 {
     int retorno=-1;
@@ -749,6 +793,16 @@ int listarAutosMasNuevos(eTrabajo trabajos[],int tamTra,eServicio servicios[],in
 	return retorno;
 }
 
+/**
+ * \brief Muestra todos los autos por localidad
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
 int mostrarAutosAllLocalidades(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
 {
     int retorno=-1;
