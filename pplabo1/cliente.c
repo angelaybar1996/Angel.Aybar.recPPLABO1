@@ -35,6 +35,33 @@ int cargarNombreCliente(int id,eCliente clientes[],int tamCli,char nombre[])
 }
 
 /**
+ * \brief Busca un id y lo remplaza por su localidad
+ * \param id identificador del cliente
+ * \param cliente Array de clientes
+ * \param tamCli limite del array de clientes
+ * \param localidad Array donde se va a cargar la localidad
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int cargarLocalidadCliente(int id,eCliente clientes[],int tamCli,char localidad[])
+{
+    int retorno=-1;
+
+    if(clientes!=NULL && tamCli>=0 && id>=3000 && id<=3009)
+    {
+        for(int i=0;i<tamCli;i++)
+        {
+            if(clientes[i].id==id)
+            {
+                strcpy(localidad,clientes[i].localidad);
+                break;
+                retorno=0;
+            }
+        }
+    }
+    return retorno;
+}
+
+/**
  * \brief Imprime un cliente
  * \param unCliente Puntero al cliente que se busca imprimir
  * \return Retorna 0 (EXITO) -1 (ERROR)
@@ -46,7 +73,7 @@ int mostrarCliente(eCliente* unCliente)
     if(unCliente!=NULL)
     {
         retorno=0;
-        printf("\n%d    %10s   %c\n",unCliente->id,unCliente->nombre,unCliente->sexo);
+        printf("\n%d    %10s   %c %10s\n",unCliente->id,unCliente->nombre,unCliente->sexo,unCliente->localidad);
     }
 
     return retorno;
@@ -63,7 +90,7 @@ int mostrarClientes(eCliente clientes[],int tamCli)
     int retorno=-1;
 
     printf("\nCLIENTES\n\n");
-    printf("ID          NOMBRE  SEXO\n");
+    printf("ID          NOMBRE  SEXO  LOCALIDAD\n");
     if(clientes!=NULL && tamCli>=0)
     {
         retorno=0;

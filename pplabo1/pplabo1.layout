@@ -2,14 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="datawarehouse.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3040" topLine="150" />
-		</Cursor>
-	</File>
 	<File name="servicio.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="141" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="datawarehouse.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1830" topLine="48" />
 		</Cursor>
 	</File>
 	<File name="color.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -17,66 +17,9 @@
 			<Cursor1 position="342" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="informes.h" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="80" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="auto.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1083" topLine="16" />
-		</Cursor>
-	</File>
-	<File name="cliente.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="86" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="informes.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1455" topLine="91" />
-		</Cursor>
-		<Folding>
-			<Collapse line="116" />
-			<Collapse line="127" />
-			<Collapse line="163" />
-			<Collapse line="174" />
-			<Collapse line="206" />
-			<Collapse line="221" />
-			<Collapse line="247" />
-			<Collapse line="262" />
-			<Collapse line="289" />
-			<Collapse line="305" />
-			<Collapse line="342" />
-			<Collapse line="357" />
-			<Collapse line="408" />
-			<Collapse line="423" />
-			<Collapse line="453" />
-			<Collapse line="468" />
-			<Collapse line="504" />
-			<Collapse line="519" />
-			<Collapse line="551" />
-			<Collapse line="566" />
-		</Folding>
-	</File>
-	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="833" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="utn.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="10378" topLine="167" />
-		</Cursor>
-	</File>
-	<File name="trabajo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1345" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="color.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="818" topLine="21" />
+			<Cursor1 position="172" topLine="12" />
 		</Cursor>
 	</File>
 	<File name="servicio.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -89,24 +32,86 @@
 			<Cursor1 position="2261" topLine="84" />
 		</Cursor>
 	</File>
+	<File name="informes.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3012" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1349" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="utn.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10378" topLine="167" />
+		</Cursor>
+	</File>
+	<File name="cliente.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1179" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="color.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="818" topLine="42" />
+		</Cursor>
+	</File>
 	<File name="datawarehouse.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="277" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="cliente.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="informes.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="423" topLine="1" />
+			<Cursor1 position="32552" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="151" />
+			<Collapse line="162" />
+			<Collapse line="198" />
+			<Collapse line="209" />
+			<Collapse line="241" />
+			<Collapse line="256" />
+			<Collapse line="282" />
+			<Collapse line="297" />
+			<Collapse line="324" />
+			<Collapse line="340" />
+			<Collapse line="377" />
+			<Collapse line="392" />
+			<Collapse line="443" />
+			<Collapse line="458" />
+			<Collapse line="488" />
+			<Collapse line="503" />
+			<Collapse line="539" />
+			<Collapse line="554" />
+			<Collapse line="586" />
+			<Collapse line="601" />
+			<Collapse line="628" />
+			<Collapse line="665" />
+			<Collapse line="695" />
+			<Collapse line="725" />
+			<Collapse line="752" />
+		</Folding>
+	</File>
+	<File name="cliente.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="513" topLine="3" />
 		</Cursor>
 	</File>
 	<File name="trabajo.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2793" topLine="92" />
+			<Cursor1 position="2793" topLine="300" />
 		</Cursor>
 	</File>
 	<File name="auto.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3351" topLine="152" />
+			<Cursor1 position="2537" topLine="122" />
+		</Cursor>
+	</File>
+	<File name="trabajo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1345" topLine="9" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

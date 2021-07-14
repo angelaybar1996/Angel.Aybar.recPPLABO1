@@ -17,6 +17,7 @@ int idMarca;
 int idColor;
 int idCliente;
 int modelo;//anio
+
 int isEmpty;
 
 }eAuto;

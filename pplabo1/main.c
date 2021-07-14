@@ -28,8 +28,8 @@ int main(void)
     eServicio servicios[TAM_SER]={{20000,"Lavado",250},{20001,"Pulido",300},{20002,"Encerado",400},{20003,"Completo",600}};
     eColor colores[TAM_COL]={{5000,"Negro"},{5001,"Blanco"},{5002,"Gris"},{5003,"Rojo"},{5004,"Azul"}};
     eCliente clientes[TAM_CLI]={
-        {3000,"Pepe",'m'},{3001,"Pablo",'m'},{3002,"Jose",'m'},{3003,"Juan",'m'},{3004,"Abel",'m'},
-        {3005,"Miguel",'m'},{3006,"Ana",'f'},{3007,"Maria",'f'},{3008,"Julia",'f'},{3009,"Marisa",'f'}};
+        {3000,"Pepe",'m',"Capital Federal"},{3001,"Pablo",'m',"Avellaneda"},{3002,"Jose",'m',"Lanus"},{3003,"Juan",'m',"Castelli"},{3004,"Abel",'m',"Vicente Lopez"},
+        {3005,"Miguel",'m',"La plata"},{3006,"Ana",'f',"Paso del Rey"},{3007,"Maria",'f',"Pilar"},{3008,"Julia",'f',"Moron"},{3009,"Marisa",'f',"Valentin Alsina"}};
 
 
     int nextTrabajo=40000;

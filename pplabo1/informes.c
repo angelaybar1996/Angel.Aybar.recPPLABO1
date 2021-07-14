@@ -41,8 +41,13 @@ int menuInformes(eTrabajo trabajos[],int tamTra,eAuto autos[],int tamAuto,eServi
                              "\n8.Importe total por los trabajos realizados a un auto"
                              "\n9.Infomar los autos que recibieron un servicio ingresado por el usuario"
                              "\n10.Servicios por fecha"
-                             "\n11.Salir\n\n"
-                             "Ingrese opcion:","\nError,opcion no valida\n",1,11,2)==0)
+                             "\n11.Mostrar autos por localidad"
+                             "\n12.Mostrar autos de capital federal"
+                             "\n13.Mostrar autos de provincia de Buenos Aires"
+                             "\n14.Mostrar los autos mas nuevos"
+                             "\n15.Mostrar todos los autos separados por localidad"
+                             "\n16.Salir\n\n"
+                             "Ingrese opcion:","\nError,opcion no valida\n",1,16,2)==0)
             {
                 retorno=0;
                 switch(opcion)
@@ -107,9 +112,39 @@ int menuInformes(eTrabajo trabajos[],int tamTra,eAuto autos[],int tamAuto,eServi
                         printf("\n\n");
                         system("pause");
                         break;
+                    case 11:
+                        system("cls");
+                        mostrarAutosLocalidad(autos,tamAuto,colores,tamCol,marcas,tamMar,clientes,tamCli);
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 12:
+                        system("cls");
+                        mostrarAutosCapitalFederal(autos,tamAuto,colores,tamCol,marcas,tamMar,clientes,tamCli);
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                     case 13:
+                        system("cls");
+                        mostrarAutosProvinciaBa(autos,tamAuto,colores,tamCol,marcas,tamMar,clientes,tamCli);
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 14:
+                        system("cls");
+                        listarAutosMasNuevos(trabajos,tamTra,servicios,tamSer,autos,tamAuto,colores,tamCol,marcas,tamMar,clientes,tamCli);
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 15:
+                        system("cls");
+                        mostrarAutosAllLocalidades(autos,tamAuto,colores,tamCol,marcas,tamMar,clientes,tamCli);
+                        printf("\n\n");
+                        system("pause");
+                        break;
                 }
             }
-        }while(opcion!=11);
+        }while(opcion!=16);
 	}
     return retorno;
 }
@@ -227,7 +262,7 @@ int listarAutosMasViejos(eTrabajo trabajos[],int tamTra,eServicio servicios[],in
 	{
 	    for(int i=0;i<tamAuto;i++)
         {
-            if(i ==0 || autos[i].modelo<masViejo)
+            if( (i ==0 || autos[i].modelo<masViejo) && autos[i].isEmpty ==0)
             {
                 masViejo=autos[i].modelo;
             }
@@ -235,7 +270,7 @@ int listarAutosMasViejos(eTrabajo trabajos[],int tamTra,eServicio servicios[],in
 
         for(int j=0;j<tamAuto;j++)
         {
-            if(autos[j].modelo==masViejo)
+            if(autos[j].modelo==masViejo && autos[j].isEmpty ==0)
             {
                 mostrarAuto(autos[j],marcas,tamMar,colores,tamCol,clientes,tamCli);
             }
@@ -590,3 +625,159 @@ int marcaAuto(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eA
 	return retorno;
 }
 
+int mostrarAutosLocalidad(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
+{
+    int retorno=-1;
+    int idCliente;
+    int indice;
+    int flag=0;
+
+    if(autos !=NULL &&tamAuto>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 && colores!=NULL &&tamCli>0 )
+	{
+	    if( mostrarClientes(clientes,tamCli)==0 &&
+	    utn_getNumero(&idCliente,"Ingrese id del cliente de la localidad que quiere:",
+                   "\nError,localidad cliente no valido\n",3000,3009,2)==0)
+	    {
+	        indice=buscarCliente(clientes,tamCli,idCliente);
+
+            printf("                      \nLOCALIDAD:%s\n",clientes[indice].localidad);
+            printf("--------------------------------------------------------------------------\n");
+            printf("Id         Patente             Marca                Color        Modelo   \n");
+            printf("--------------------------------------------------------------------------\n");
+	        for(int i=0;i<tamAuto;i++)
+            {
+                if(autos [i].idCliente==idCliente  && autos[i].isEmpty==0)
+                {
+                   mostrarAuto(autos[i],marcas,tamMar,colores,tamCol,clientes,tamCli);
+                   flag=1;
+                }
+            }
+            if(flag==0)
+            {
+                printf("\nNo hay autos de esta localidad\n");
+            }
+	    }
+	    retorno=0;
+	}
+	return retorno;
+}
+
+int mostrarAutosCapitalFederal(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
+{
+    int retorno=-1;
+    int flag=0;
+
+    if(autos !=NULL &&tamAuto>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 && colores!=NULL &&tamCli>0 )
+	{
+
+            printf("                      \nLOCALIDAD:CAPITAL FEDERAL\n");
+            printf("--------------------------------------------------------------------------\n");
+            printf("Id         Patente             Marca                Color        Modelo   \n");
+            printf("--------------------------------------------------------------------------\n");
+	        for(int i=0;i<tamAuto;i++)
+            {
+                if(autos [i].idCliente==clientes[i].id   && strcmp(clientes[i].localidad,"Capital Federal")==0 && autos[i].isEmpty==0)
+                {
+                   mostrarAuto(autos[i],marcas,tamMar,colores,tamCol,clientes,tamCli);
+                   flag=1;
+                }
+            }
+            if(flag==0)
+            {
+                printf("\nNo hay autos de esta localidad\n");
+            }
+
+	    retorno=0;
+	}
+	return retorno;
+}
+
+int mostrarAutosProvinciaBa(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
+{
+    int retorno=-1;
+    int flag=0;
+
+    if(autos !=NULL &&tamAuto>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 && colores!=NULL &&tamCli>0 )
+	{
+
+            printf("                      \nLOCALIDAD:PROVINCIA DE BUENOS AIRES\n");
+            printf("--------------------------------------------------------------------------\n");
+            printf("Id         Patente             Marca                Color        Modelo   \n");
+            printf("--------------------------------------------------------------------------\n");
+	        for(int i=0;i<tamAuto;i++)
+            {
+                if(autos [i].idCliente==clientes[i].id   && strcmp(clientes[i].localidad,"Capital Federal")!=0 && autos[i].isEmpty==0)
+                {
+                   mostrarAuto(autos[i],marcas,tamMar,colores,tamCol,clientes,tamCli);
+                   flag=1;
+                }
+            }
+            if(flag==0)
+            {
+                printf("\nNo hay autos de esta localidad\n");
+            }
+
+	    retorno=0;
+	}
+	return retorno;
+}
+
+int listarAutosMasNuevos(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
+{
+    int retorno=-1;
+    int masNuevo=0;
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0 && clientes!=NULL && tamCli>=0)
+	{
+	    for(int i=0;i<tamAuto;i++)
+        {
+            if( (i==0 || autos[i].modelo > masNuevo) && autos[i].isEmpty==0)
+            {
+                masNuevo=autos[i].modelo;
+            }
+        }
+
+        for(int j=0;j<tamAuto;j++)
+        {
+            if(autos[j].modelo==masNuevo && autos[j].isEmpty==0)
+            {
+                mostrarAuto(autos[j],marcas,tamMar,colores,tamCol,clientes,tamCli);
+            }
+        }
+	    retorno=0;
+	}
+	return retorno;
+}
+
+int mostrarAutosAllLocalidades(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli)
+{
+    int retorno=-1;
+    int flag[]={0,0,0,0,0,0,0,0,0,0};
+
+    if(autos !=NULL &&tamAuto>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 && clientes!=NULL &&tamCli>=0 )
+	{
+	    for(int i=0;i<tamCli;i++)
+        {
+            printf("                        \nLOCALIDAD: %s\n",clientes[i].localidad);
+            printf("---------------------------------------------------------------------------------\n");
+            printf("Id         Patente             Marca                Color        Modelo    Cliente  Localidad\n");
+            printf("---------------------------------------------------------------------------------\n");
+            for(int j=0;j<tamAuto;j++)
+            {
+                if(autos[j].idCliente==clientes[i].id  && autos[j].isEmpty==0)
+                {
+                   if(mostrarAuto(autos[j],marcas,tamMar,colores,tamCol,clientes,tamCli)==0)
+                   {
+                      flag[i]=1;
+                   }
+                }
+            }
+            if(flag[i]==0)
+            {
+             printf("\nNo hay autos con esta localidad\n");
+            }
+        }
+         retorno=0;
+	}
+	return retorno;
+}

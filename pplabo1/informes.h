@@ -16,4 +16,10 @@ int cantidadAutoMarca(eTrabajo trabajos[],int tamTra,eServicio servicios[],int t
 int informarCantidadServicios(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol,eCliente clientes[],int tamCli);//listo
 int marcaAuto(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol,eCliente clientes[],int tamCli);
 
+int mostrarAutosLocalidad(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli);//listo
+int mostrarAutosCapitalFederal(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli);//listo
+int mostrarAutosProvinciaBa(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli);//listo
+int listarAutosMasNuevos(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli);
+int mostrarAutosAllLocalidades(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar,eCliente clientes[],int tamCli);//listo
+
 #endif // INFORMES_H_INCLUDED

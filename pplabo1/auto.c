@@ -119,22 +119,25 @@ int mostrarAuto(eAuto unAuto,eMarca marcas[],int tamMar,eColor colores[],int tam
     char desMarca[20];
     char desColor[20];
     char nombre[20];
+    char auxLocalidad[50];
 
     if(marcas!=NULL && tamMar>=0 && colores!=NULL && tamCol>=0)
     {
     	cargarDescripcionColor(unAuto.idColor, colores, tamCol, desColor);//bien
     	cargarDescripcionMarca(unAuto.idMarca, marcas, tamMar, desMarca);//bien
     	cargarNombreCliente(unAuto.idCliente,clientes,tamCli,nombre);//bien
+    	cargarLocalidadCliente(unAuto.idCliente,clientes,tamCli,auxLocalidad);
 
        retorno=0;
-     //printf("Id    Patente        Marca        Color     Modelo        Cliente\n");
-       printf("\n%d   %10s          %10s          %10s         %d    %s\n",
+     //printf("Id    Patente        Marca        Color     Modelo        Cliente Localidad\n");
+       printf("\n%d   %10s          %10s          %10s         %d    %s        %s\n",
        unAuto.id,
        unAuto.patente,
        desMarca,
        desColor,
        unAuto.modelo,
-       nombre);
+       nombre,
+       auxLocalidad);
 
     }
 
@@ -158,7 +161,7 @@ int mostrarAutos(eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor col
 
     printf("\n                Listado de Autos\n");
     printf("---------------------------------------------------------------------------------------\n");
-    printf("Id           Patente             Marca               Color           Modelo     Cliente\n");
+    printf("Id           Patente             Marca               Color           Modelo     Cliente   Localidad\n");
     printf("---------------------------------------------------------------------------------------\n");
     if(autos!=NULL && tamAuto>0 && marcas!=NULL && tamMar>=0 && colores!=NULL && tamCol>=0 && clientes!=NULL && tamCli>=0)
     {
