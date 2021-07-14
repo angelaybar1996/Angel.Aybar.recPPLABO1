@@ -1,0 +1,779 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "informes.h"
+
+/*
+ "\n1.Mostrar autos por color"//se adapta para marcas//bien
+ "\n2.Mostrar autos por colores"//se adapta para marcas//bien
+ "\n3.Trabajos realizados a un auto"//por fecha o total de trabajos
+ "\n4.Importe total por todos los trabajos realizados a un auto"//bien
+ "\n5.---------------------------"//Total trabajo de todos los autosMostrar cuanto se recaudo en total por los trabajos"
+ "\n6.Almuerzos de empleado"//trabajos del auto//(SI)Pedir un auto e informar la suma de los importes de los servicios que se le hicieron a la misma"//por fecha o total de trabajos
+ "\n7.Total a pagar almuerzos empleado"//total a pagar trabajos del auto//Mostrar cuanto se recaudo por auto en los trabajos"//sea por fecha o por total de trabajos
+ "\n8.Total a pagar almuerzos sectores"//total a pagar trabajos por marca/color
+ "\n9.Milanesas por sector"//servicios por color/marca
+ "\n10.Sectores amantes de la milanesa"//autos con mas lavados/pulido/encerado/completo
+ "\n11.Listar total comidas fechas"//listar total servicios por fecha
+ "\n12.Ingreso por comidas"//total por servicios de todos los trabajos
+ "\n1.Informar la patente con mas cantidad de 'A'"
+ "\n2.(SI)Mostrar un listado de los autos o cantidad separados por servicio segun fecha ingresada"//O TOTAL TRABAJO
+ "\n3.(SI)Elegir un color y una marca y contar cuantos autos hay de ese color y esa marca"
+ "\n4.(SI)Mostrar el o los colores mas frecuentes de los autos "//te indica que color hay mas
+ "\n5.(SI)Pedir un servicio y mostrar los autos a las que se les realizo ese servicio"//total por servicios de todos los trabajos
+ "\n6.Informar el auto que mas trabajos/gastos tuvo"//POR FECHA O TOTAL DE TRABAJOS
+ "\n7.Ingresar un modelo y listar todos los autos de eso modelo y de que marca/color son"
+ "\n8.Listar el o los modelos mas recientes"
+ "\n9.alguna funcion que me devuelva la cantidad de caracteres"
+ "\n10.alguna funcion que me muestre solo los que empiezen con determinado caracter"
+ "\n11.Mostrar el auto que mas lavado/pulido/encerado/completo tuvo"//O QUE MAS SERVICIOS TUVO POR FECHA O TOTAL DE TRABAJOS
+ "\n12.Cantidad de autos que solo se hicieron cierto servicio"//
+ "\n13.Mostrar cuanto se recaudo por dia en los trabajos"
+ "\n14.El promedio de ganancia por auto total"//
+ "\n15.El promedio de lavados/pulidos/encerados/completos por total trabajos"//o por fecha
+
+
+
+
+*/
+
+/**
+ * \brief Menu de opciones de los informes
+ * \param trabajos Array de trabajos
+ * \param tamTra limite del array de trabajos
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param servicios Array de servicios
+ * \param tamSer limite del array de servicios
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int menuInformes(eTrabajo trabajos[],int tamTra,eAuto autos[],int tamAuto,eServicio servicios[],int tamSer,eColor colores[],int tamCol,eMarca marcas[],int tamMar)
+{
+    int retorno=-1;
+    int opcion;
+
+    if(trabajos!=NULL &&tamTra>0 && autos!=NULL &&tamAuto>0 && servicios!=NULL &&tamSer>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 )
+	{
+        do
+        {
+            if(utn_getNumero(&opcion,
+                             "\n\n----------------------------------------\n"
+                                               "INFORMES"
+                             "\n-------------------------------------------"
+                             "\n1.Mostrar autos por color"
+                             "\n2.Mostrar autos por colores"
+                             "\n3.------------------------------"
+                             "\n4.------------------------------"
+                             "\n5.------------------------------"
+                             "\n6.Trabajos realizados a un auto"
+                             "\n7.Importe total por todos los trabajos realizados a un auto"
+                             "\n8.Total a pagar Trabajos marcas"
+                             "\n9.Lavados por color"
+                             "\n10.-----------------------------"
+                             "\n11.-----------------------------"
+                             "\n12.-----------------------------"
+                             "\n13.Salir\n\n"
+                             "Ingrese opcion:","\nError,opcion no valida\n",1,13,2)==0)
+            {
+                retorno=0;
+                switch(opcion)
+                {
+                    case 1:
+                        system("cls");
+                        mostrarAutosColor(autos,tamAuto,colores,tamCol,marcas,tamMar);//bien
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 2:
+                        system("cls");
+                        mostrarAutosAllColors(autos,tamAuto,colores,tamCol,marcas,tamMar);//bien
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 3:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 4:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 5:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 6:
+                        system("cls");
+                        trabajosAuto(trabajos,tamTra,servicios,tamSer,autos,tamAuto,colores,tamCol,marcas,tamMar);//mejorarlo
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 7:
+                        system("cls");
+                        totalTrabajosAuto(trabajos,tamTra,servicios,tamSer,autos,tamAuto,colores,tamCol,marcas,tamMar);//mejorarlo
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 8:
+                        system("cls");
+                        totalTrabajosMarca(trabajos,tamTra,servicios,tamSer,autos,tamAuto,colores,tamCol,marcas,tamMar);//mejorarlo
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 9:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 10:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 11:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                    case 12:
+                        system("cls");
+
+                        printf("\n\n");
+                        system("pause");
+                        break;
+                }
+            }
+        }while(opcion!=13);
+	}
+    return retorno;
+}
+
+/**
+ * \brief Muestra los autos por color
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+
+int mostrarAutosColor(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar)
+{
+    int retorno=-1;
+    int idColor;
+    int indice;
+    int flag=0;
+
+    if(autos !=NULL &&tamAuto>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 )
+	{
+	    if( mostrarColores(colores,tamCol)==0 &&
+	    utn_getNumero(&idColor,"Ingrese id del color:",
+                   "\nError,color no valido\n",5000,5004,2)==0)
+	    {
+	        indice=buscarColor(colores,tamCol,idColor);
+	        retorno=0;
+
+            printf("                      \nCOLOR:%s\n",colores[indice].descripcion);
+            printf("--------------------------------------------------------------------------\n");
+            printf("Id         Patente             Marca                Color        Modelo   \n");
+            printf("--------------------------------------------------------------------------\n");
+	        for(int i=0;i<tamAuto;i++)
+            {
+                if(autos [i].idColor==idColor  && autos[i].isEmpty==0)
+                {
+                   mostrarAuto(autos[i],marcas,tamMar,colores,tamCol);
+                   flag=1;
+                }
+            }
+            if(flag==0)
+            {
+                printf("\nNo hay autos con este color\n");
+            }
+	    }
+	}
+	return retorno;
+}
+
+/**
+ * \brief Muestra los colores con sus autos
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int mostrarAutosAllColors(eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar)
+{
+    int retorno=-1;
+    int flag[]={0,0,0,0,0};
+
+    if(autos !=NULL &&tamAuto>0 && colores!=NULL &&tamCol>0 && marcas!=NULL &&tamMar>0 )
+	{
+	    retorno=0;
+	    for(int i=0;i<tamCol;i++)
+        {
+            printf("                        \nCOLOR: %s\n",colores[i].descripcion);
+            printf("--------------------------------------------------------------------------\n");
+            printf("Id         Patente             Marca                Color        Modelo   \n");
+            printf("--------------------------------------------------------------------------\n");
+            for(int j=0;j<tamAuto;j++)
+            {
+                if(autos[j].idColor==colores[i].id  && autos[j].isEmpty==0)
+                {
+                   if(mostrarAuto(autos[j],marcas,tamMar,colores,tamCol)==0)
+                   {
+                      flag[i]=1;
+                   }
+                }
+            }
+            if(flag[i]==0)
+            {
+             printf("\nNo hay autos con este color\n");
+            }
+        }
+	}
+	return retorno;
+}
+
+/**
+ * \brief Muestra el total de sueldo de un sector
+ * \param  lista Array de empleados
+ * \param tam limite del array de empleados
+ * \param  sectores Array de sectores
+ * \param tamSec limite del array de sectores
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int totalSueldosSector(eEmpleado lista[],int tam,eSector sectores[], int tamSec)
+{
+    int retorno=-1;
+    int idSector;
+    int indice;
+    float totalSueldo=0;
+    int flag=0;
+
+    if(lista!=NULL &&tam>0 && sectores!=NULL &&tamSec>0 )
+	{
+	    if( mostrarSectores(sectores,tamSec)==0 &&
+	    utn_getNumero(&idSector,"Ingrese id del sector:",
+                   "\nError,sector no valido\n",500,504,2)==0)
+	    {
+	        indice=buscarSector(sectores,tamSec,idSector);
+	        retorno=0;
+
+            printf("\nTotal sueldo sector:%s\n",sectores[indice].descripcion);
+	        for(int i=0;i<tam;i++)
+            {
+                if(lista[i].idSector==idSector  && lista[i].isEmpty==0)
+                {
+                   totalSueldo=totalSueldo+lista[i].sueldo;
+                   flag=1;//las banderas ayudan mucho
+                }
+            }
+            if(flag==0)
+            {
+                printf("\nNo hay empleados en este sector\n");
+            }
+            else
+            {
+                printf("\nSueldo Total:%.2f\n",totalSueldo);
+            }
+	    }
+	}
+	return retorno;
+}
+
+/**
+ * \brief Muestra el total de sueldo de cada sector y finaliza con la suma de todos los sueldos
+ * \param  lista Array de empleados
+ * \param tam limite del array de empleados
+ * \param  sectores Array de sectores
+ * \param tamSec limite del array de sectores
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int totalAdepositar(eEmpleado lista[],int tam,eSector sectores[], int tamSec)
+{
+    int retorno=-1;
+    float totalSueldo;
+    float totalTodo=0;
+
+
+    if(lista!=NULL &&tam>0 && sectores!=NULL &&tamSec>0 )
+	{
+	    retorno=0;
+	    for(int i=0;i<tamSec;i++)
+        {
+            totalSueldo=0;
+            printf("\nSueldo Total Sector: %s\n\n",sectores[i].descripcion);
+            for(int j=0;j<tam;j++)
+            {
+                if(lista[j].idSector==sectores[i].id  && lista[j].isEmpty==0)
+                {
+                   totalSueldo=totalSueldo+lista[j].sueldo;
+                }
+            }
+            totalTodo=totalTodo+totalSueldo;
+            printf("\nTotal Sueldo:$%.2f\n",totalSueldo);
+            printf("\n---------------------------------------------------------------------------------------------------------------------\n");
+        }
+        printf("\nTotal a depositar:$%.2f\n",totalTodo);
+	}
+	return retorno;
+
+
+}
+
+/**
+ * \brief Informa las marcas que mas ganan
+ * \param  lista Array de empleados
+ * \param tam limite del array de empleados
+ * \param  sectores Array de sectores
+ * \param tamSec limite del array de sectores
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+
+int sectorMayorSueldo(eAuto autos[],int tamAuto,eMarca marcas[], int tamMar)
+{
+    int retorno=-1;
+    float totalSueldo;
+    float totales[tamMar];
+    float totalMayor=0;
+
+    if(autos!=NULL &&tamAuto>0 && marcas!=NULL &&tamMar>0 )
+	{
+	    printf("\nMarcas que mas ganan\n");
+	    retorno=0;
+	    for(int i=0;i<tamMar;i++)
+        {
+            totalSueldo=0;
+
+            for(int j=0;j<tamAuto;j++)
+            {
+                if(autos[j].idMarca==marcas[i].id  && autos[j].isEmpty==0)
+                {
+                   totalSueldo=totalSueldo+autos[j].anio;
+                }
+            }
+            totales[i]=totalSueldo;
+        }
+
+        for(int i=0;i<tamMar;i++)
+        {
+            if(totales[i]>totalMayor)
+            {
+                totalMayor=totales[i];
+            }
+        }
+        for(int i=0;i<tamMar;i++)
+        {
+            if(totales[i]==totalMayor)
+            {
+                printf("\n%s\n",marcas[i].descripcion);
+            }
+        }
+	}
+	return retorno;
+}
+
+/**
+ * \brief Informa todos los trabajos de un auto
+ * \param trabajos Array de trabajos
+ * \param tamTra limite del array de trabajos
+ * \param servicios Array de servicios
+ * \param tamSer limite del array de servicios
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int trabajosAuto(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar)
+{
+
+    int retorno=-1;
+    int idAuto;
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+    {
+        mostrarAutos(autos,tamAuto,marcas,tamMar,colores,tamCol);
+        if(utn_getNumero(&idAuto,"\nIngrese id del auto:","\nError, id no valido",80000,80009,4)==0 &&
+           buscarAutoId(autos,tamAuto,idAuto)!=-1)
+        {
+            printf("\nTrabajos de un Auto\n");
+            printf("-----------------------");
+            for(int i=0;i<tamTra;i++)
+            {
+                if(trabajos[i].isEmpty==0 && trabajos[i].idAuto==idAuto)
+                {
+                    mostrarTrabajo(&trabajos[i],autos,tamAuto,servicios,tamSer,marcas,tamMar,colores,tamCol);
+                }
+            }
+        }
+    }
+    return retorno;
+}
+
+
+/**
+ * \brief Informa el total a pagar de todos los trabajos de un auto
+ * \param trabajos Array de trabajos
+ * \param tamTra limite del array de trabajos
+ * \param servicios Array de servicios
+ * \param tamSer limite del array de servicios
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+
+int totalTrabajosAuto(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eColor colores[],int tamCol,eMarca marcas[],int tamMar)
+{
+   int retorno=-1;
+   int idAuto;
+   float total=0;
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+    {
+
+        mostrarAutos(autos,tamAuto,marcas,tamMar,colores,tamCol);
+        if(utn_getNumero(&idAuto,
+                                 "\nIngrese id del auto:",
+                                 "\nError, id no valido",80000,80009,4)==0 &&
+           buscarAutoId(autos,tamAuto,idAuto)!=-1)
+        {
+             printf("\nTotal a pagar de los trabajos de un auto\n");
+             printf("--------------------------------------------");
+
+            for(int i=0;i<tamTra;i++)
+            {
+                if(trabajos[i].isEmpty==0 && trabajos[i].idAuto==idAuto)
+                {
+                    for(int j=0;j<tamSer;j++)
+                    {
+                        if(trabajos[i].idServicio==servicios[j].id)
+                        {
+                            total=total+servicios[j].precio;
+                        }
+                    }
+                }
+            }
+            retorno=0;
+            printf("Total a pagar:$ %.2f",total);
+        }
+    }
+    return retorno;
+}
+
+
+/**
+ * \brief Informa el total a pagar de todos los trabajos de cada marca
+ * \param trabajos Array de trabajos
+ * \param tamTra limite del array de trabajos
+ * \param servicios Array de servicios
+ * \param tamSer limite del array de servicios
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+
+int totalTrabajosMarca(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol)
+{
+    int retorno=-1;
+    float totalTrabajos;
+    float totalTodo=0;
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+	{
+	    printf("\nTotal a pagar de trabajos por marcas\n");
+	    printf("---------------------------------------\n\n");
+	    retorno=0;
+	    for(int i=0;i<tamMar;i++)//recorrido marcas
+        {
+            totalTrabajos=0;
+            printf("\n-------------------");
+            printf("\nMarca: %s\n",marcas[i].descripcion);
+            printf("-------------------");
+            for(int j=0;j<tamAuto;j++)//recorrido autos
+            {
+                if(autos[j].idMarca==marcas[i].id  && autos[j].isEmpty==0)
+                {
+                    for(int a=0;a<tamTra;a++)//recorrido trabajos
+                    {
+                        if(trabajos[a].idAuto==autos[j].id && trabajos[a].isEmpty==0)
+                        {
+                            for(int c=0;c<tamSer;c++)//recorrido servicios
+                            {
+                                if(servicios[c].id==trabajos[a].idServicio)
+                                {
+                                    totalTrabajos=totalTrabajos+servicios[c].precio;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            totalTodo=totalTodo+totalTrabajos;
+            printf("\n\nTotal:$%.2f\n",totalTrabajos);
+        }
+        printf("\n\nTotal Trabajos de todos las marcas:$%.2f\n\n",totalTodo);
+	}
+	return retorno;
+}
+
+/**
+ * \brief Informa todos los lavados por color
+ * \param trabajos Array de trabajos
+ * \param tamTra limite del array de trabajos
+ * \param servicios Array de servicios
+ * \param tamSer limite del array de servicios
+ * \param autos Array de autos
+ * \param tamAuto limite del array de autos
+ * \param colores Array de colores
+ * \param tamCol limite del array de colores
+ * \param marcas Array de marcas
+ * \param tamMar limite del array de marcas
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int lavadosPorColor(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol)
+{
+    int retorno=-1;
+    int totalLavados;
+    int totalTodo=0;
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+	{
+	    printf("\nTotal Lavados por Color\n");
+	    printf("---------------------------------------\n\n");
+	    retorno=0;
+	    for(int i=0;i<tamCol;i++)//recorrido colores
+        {
+            totalLavados=0;
+            printf("\n-------------------");
+            printf("\nColor: %s\n",colores[i].descripcion);
+            printf("-------------------");
+            for(int j=0;j<tamAuto;j++)//recorrido autos
+            {
+                if(autos[j].idColor==colores[i].id  && autos[j].isEmpty==0)
+                {
+                    for(int a=0;a<tamTra;a++)//recorrido trabajos
+                    {
+                        if(trabajos[a].idAuto==autos[j].id && trabajos[a].isEmpty==0)
+                        {
+                            for(int c=0;c<tamSer;c++)//recorrido servicios
+                            {
+                                if(servicios[c].id==trabajos[a].idServicio &&
+                                   strcmp(servicios[c].descripcion,"Lavado")==0)
+                                {
+                                    totalLavados++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            totalTodo=totalTodo+totalLavados;
+            printf("\n\nTotal:%d\n",totalLavados);
+        }
+        printf("\n\nTotal Lavados de todos los colores:%d\n\n",totalTodo);
+	}
+	return retorno;
+}
+
+/**
+ * \brief Informa el total a pagar de todos los almuerzos de cada sector
+ * \param  almuerzos Array de almuerzos
+ * \param tama limite del array de almuerzos
+ * \param  comidas Array de comidas
+ * \param tamc limite del array de comidas
+ * \param  lista Array de empleados
+ * \param tame limite del array de empleados
+ * \param  sectores Array de sectores
+ * \param tams limite del array de sectores
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int ColorConMasEncerado(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol)
+{
+    int retorno=-1;
+    int contadores[tams];
+    int mayor;
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+	{
+	    retorno=0;
+	    for(int i=0;i<tamCol;i++)//recorrido colores
+        {
+            contadores[i]=0;
+
+            for(int j=0;j<tamAuto;j++)//recorrido autos
+            {
+                if(autos[j].idColor==colores[i].id  && autos[j].isEmpty==0)
+                {
+                    for(int a=0;a<tamTra;a++)//recorrido trabajos
+                    {
+                        if(trabajos[a].idAuto==autos[j].id && trabajos[a].isEmpty==0)
+                        {
+                            for(int c=0;c<tamSer;c++)//recorrido servicios
+                            {
+                                if(servicios[c].id==trabajos[a].idServicio &&
+                                   strcmp(servicios[c].descripcion,"Encerado")==0)
+                                {
+                                    contadores[i]++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        printf("\nAmantes del Encerado:\n");
+        for(int i=0;i<tamCol;i++)
+        {
+            if(i==0 || contadores[i]>mayor)
+            {
+                mayor=contadores[i];
+            }
+        }
+
+        for(int j=0;j<tamCol;j++)
+        {
+            if(contadores[j]==mayor)
+            {
+                printf("%s\n",colores[j].descripcion);
+            }
+        }
+	}
+	return retorno;
+}
+
+/**
+ * \brief Informa el total a pagar de todos los almuerzos de cada sector
+ * \param  almuerzos Array de almuerzos
+ * \param tama limite del array de almuerzos
+ * \param  comidas Array de comidas
+ * \param tamc limite del array de comidas
+ * \param  lista Array de empleados
+ * \param tame limite del array de empleados
+ * \param  sectores Array de sectores
+ * \param tams limite del array de sectores
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+int listarTotalServiciosFecha(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol)
+{
+    int retorno=-1;
+    eFecha fechaAux;
+    int contador[]={0,0,0,0,0};
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+    {
+        printf("\nServicios por fecha\n");
+        printf("-----------------------");
+
+        if(utn_getNumero(&fechaAux.dia,
+                                 "\nIngrese fecha"
+                                 "\nDia:",
+                                 "\nError, dia no validado",1,31,4)==0 &&
+           utn_getNumero(&fechaAux.mes,
+                                 "Mes:",
+                                 "\nError, mes no validado",1,12,4)==0 &&
+           utn_getNumero(&fechaAux.anio,
+                                 "Anio:",
+                                 "\nError, anio no validado",1,3000,4)==0)
+
+        {
+            for(int i=0;i<tamTra;i++)
+            {
+                for(int j=0;j<tamSer;j++)
+                {
+                    if( trabajos[i].isEmpty==0 &&
+                        trabajos[i].idServicio==servicios[j].id &&
+                        trabajos[i].fecha.dia==fechaAux.dia &&
+                        trabajos[i].fecha.mes==fechaAux.mes &&
+                        trabajos[i].fecha.anio==fechaAux.anio)
+                    {
+                        contador[j]++;
+                    }
+                }
+            }
+
+            for(int i=0;i<tamSer;i++)
+            {
+                printf("\ncantidad de %s: %d",servicios[i].descripcion,contador[i]);
+            }
+            printf("\n\n");
+        }
+    }
+    return retorno;
+}
+
+/**
+ * \brief Informa el total a pagar de todos los almuerzos de cada sector
+ * \param  almuerzos Array de almuerzos
+ * \param tama limite del array de almuerzos
+ * \param  comidas Array de comidas
+ * \param tamc limite del array de comidas
+ * \param  lista Array de empleados
+ * \param tame limite del array de empleados
+ * \param  sectores Array de sectores
+ * \param tams limite del array de sectores
+ * \return Retorna 0 (EXITO) -1 (ERROR)
+ */
+//Nos dice el total de ingreso de cada uno de las comidas
+int totalPorServicio(eTrabajo trabajos[],int tamTra,eServicio servicios[],int tamSer,eAuto autos[],int tamAuto,eMarca marcas[],int tamMar,eColor colores[],int tamCol)
+{
+    int retorno=-1;
+    int contador[]={0,0,0,0,0};
+    int totalPorServicio[]={0,0,0,0,0};
+
+    if(trabajos!=NULL && tamTra>=0 && servicios!=NULL && tamSer>=0 && autos!=NULL && tamAuto>=0 && colores!=NULL && tamCol>=0  && marcas!=NULL && tamMar>=0)
+    {
+        printf("\nIngreso total por cada servicio\n");
+        printf("---------------------------------");
+
+        for(int i=0;i<tamTra;i++)
+        {
+            for(int j=0;j<tamSer;j++)
+            {
+                if( trabajos[i].isEmpty==0 &&
+                    trabajos[i].idServicio==servicios[j].id)
+                {
+                    contador[j]++;
+                }
+            }
+        }
+
+        for(int i=0;i<tamc;i++)
+        {
+            totalPorServicio[i]=contador[i]*servicios[i].precio;
+            printf("\nprecio total de %s en todos los trabajos: %d",servicios[i].descripcion,totalPorServicio[i]);
+        }
+        printf("\n\n");
+    }
+    return retorno;
+}
